@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Calendar, Users, TrendingUp, BookOpen } from 'lucide-react'
+import { BookOpen, Calendar, Users, TrendingUp } from 'lucide-react'
 
 const YearView = () => {
   const { year } = useParams()
@@ -119,7 +119,7 @@ const YearView = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { icon: Calendar, label: 'Semesters', value: currentYear.semesters.length.toString() },
-              { icon: Calendar, label: 'Total Resources', value: currentYear.semesters.reduce((acc, sem) => acc + sem.resources, 0).toString() },
+              { icon: BookOpen, label: 'Total Resources', value: currentYear.semesters.reduce((acc, sem) => acc + sem.resources, 0).toString() },
               { icon: Users, label: 'Active Students', value: '2,450' },
               { icon: TrendingUp, label: 'Success Rate', value: '94%' }
             ].map((stat, index) => {
@@ -133,7 +133,7 @@ const YearView = () => {
                   className="card p-6 text-center"
                 >
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full mb-4">
-                    <BookOpen className="h-4 w-4 text-primary-600 dark:text-primary-400 flex-shrink-0" />
+                    <Icon className="h-6 w-6 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                     {stat.value}
@@ -229,7 +229,7 @@ const YearView = () => {
               </p>
             </div>
             <div className="text-center p-6 bg-green-50 dark:bg-green-900/20 rounded-lg">
-              <BookOpen className="h-12 w-12 text-green-600 dark:text-green-400 mx-auto mb-4" />
+              <Users className="h-12 w-12 text-green-600 dark:text-green-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Study Groups
               </h3>
@@ -238,7 +238,7 @@ const YearView = () => {
               </p>
             </div>
             <div className="text-center p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-              <BookOpen className="h-12 w-12 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
+              <TrendingUp className="h-12 w-12 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Progress Tracking
               </h3>

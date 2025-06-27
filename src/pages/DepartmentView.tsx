@@ -255,7 +255,7 @@ const DepartmentView = () => {
                         </div>
                         <div className="bg-white/20 rounded-lg p-4">
                             <div className="flex items-center space-x-3">
-                                <BookOpen className="w-6 h-6 text-gray-400" />
+                                <BookOpen className="w-6 h-6" />
                                 <div>
                                     <p className="text-sm text-white/80">Resources</p>
                                     <p className="text-xl font-bold">{department.stats.resources}</p>

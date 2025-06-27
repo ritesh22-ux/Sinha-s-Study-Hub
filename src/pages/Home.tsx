@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
@@ -21,34 +21,6 @@ import {
 } from 'lucide-react'
 import { useAnalyticsStore } from '../store/analyticsStore'
 import { useResourceStore } from '../store/resourceStore'
-
-// AnimatedCounter component for stats
-const AnimatedCounter = ({ value, duration = 1200, decimals = 0, suffix = '' }) => {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    let start = 0
-    const end = Number(value)
-    if (start === end) return
-    const increment = (end - start) / (duration / 16)
-    let current = start
-    const step = () => {
-      current += increment
-      if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-        setCount(end)
-        return
-      }
-      setCount(current)
-      requestAnimationFrame(step)
-    }
-    step()
-    // eslint-disable-next-line
-  }, [value])
-  return (
-    <span>
-      {count.toFixed(decimals)}{suffix}
-    </span>
-  )
-}
 
 const Home = () => {
   const navigate = useNavigate()
@@ -292,8 +264,6 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon
-              let decimals = stat.label === 'Average Rating' ? 1 : 0
-              let suffix = stat.label !== 'Average Rating' ? '+' : ''
               return (
                 <motion.div
                   key={stat.label}
@@ -306,7 +276,7 @@ const Home = () => {
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                    <AnimatedCounter value={parseFloat(stat.value)} decimals={decimals} suffix={suffix} />
+                    {stat.value}
                   </div>
                   <div className="text-gray-600 dark:text-gray-400">
                     {stat.label}

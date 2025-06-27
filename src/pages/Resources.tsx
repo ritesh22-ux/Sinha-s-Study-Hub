@@ -142,9 +142,6 @@ const Resources = () => {
 
   // Enhanced search functionality with folder navigation
   const searchAllContent = () => {
-    if (!Array.isArray(engineeringDepartments)) {
-      return { resources: [], departments: [], subjects: [], folders: [] }
-    }
     const query = searchQuery.toLowerCase().trim()
     if (!query) return { resources: [], departments: [], subjects: [], folders: [] }
 

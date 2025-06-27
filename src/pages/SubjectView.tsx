@@ -427,7 +427,10 @@ const SubjectView = () => {
                     )}
                   />
                   <div className="absolute top-2 left-2 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full">
-                    <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                    <Icon className={cn(
+                      "h-4 w-4",
+                      getResourceColor(resource.type)
+                    )} />
                   </div>
                   <button
                     onClick={() => toggleFavorite(resource.id)}
